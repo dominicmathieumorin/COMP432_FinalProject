@@ -5,6 +5,7 @@ Dominic Morin (40032939)
 
 [Link to the overleaf project](https://www.overleaf.com/project/6251a2bc02c8bb986bf9baae)
 
+[Link to project presentation](https://docs.google.com/presentation/d/1Bo_MZKp7xg6LgVBioLwYjxOlB_adi3AAlvYWuZBNdtg/edit?usp=sharing)
 
 ### 1. Run the training
 ```bash
