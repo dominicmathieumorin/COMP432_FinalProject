@@ -1,0 +1,6 @@
+/runs/
+/report/
+/.ipynb_checkpoints/
+.idea/
+
+*.pyc
