@@ -1,4 +1,2 @@
-import torch
-
-model = torch.jit.load('models/latest_model.pt')
-model.eval()
+# no automatic optimization yet
+# all of it was done manually using the tensorboard validation loss tracker

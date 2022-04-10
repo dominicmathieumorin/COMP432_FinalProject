@@ -128,4 +128,4 @@ if __name__ == '__main__':
 
     # show_predictions(model, test_dataset, correctly_predicted=True)
     # show_predictions(model, test_dataset, correctly_predicted=False)
-    show_weights_for_class(model, test_dataset, label="regulatory--maximum-speed-limit-100--g1")
+    # show_weights_for_class(model, test_dataset, label="regulatory--maximum-speed-limit-100--g1")

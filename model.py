@@ -4,6 +4,9 @@ import torch.nn.functional as F
 
 
 class Model(nn.Module):
+    """
+    Custom module to hold the neural network operations
+    """
     def __init__(self):
         super().__init__()
         self.conv1 = nn.Conv2d(3, 6, (5, 5))

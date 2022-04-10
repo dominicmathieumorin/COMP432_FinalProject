@@ -5,9 +5,15 @@ from torchvision.transforms.functional import to_tensor
 
 class MappilaryDataset(Dataset):
     """
-    Custom dataset loader for Mappilary Data
+    Custom dataset for Mappilary Data
     """
     def __init__(self, path, transform=None, target_transform=None):
+        """
+
+        :param path: path to the .pkl file
+        :param transform: transform input features
+        :param target_transform: transform labels
+        """
         self.images = []
         self.classes = []
         self.labels = []
@@ -40,6 +46,3 @@ class MappilaryDataset(Dataset):
             label = self.target_transform(label)
 
         return to_tensor(image), label
-
-    def class_count(self):
-        return len(self.class_to_label)
