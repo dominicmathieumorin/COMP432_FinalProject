@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import torch.nn.functional as nnf
 from torch.utils.data import DataLoader
 from torchvision.utils import make_grid
+
 from utils.dataset import MappilaryDataset
 
 
@@ -31,6 +32,19 @@ def log_class_distribution(title, writer, dataset):
     writer.add_histogram(title, bins)
 
 
+def plot_example_images(title, dataset):
+    """
+    Plot some examples for a given dataset
+    :param title:
+    :param dataset:
+    :return:
+    """
+    dataloader = DataLoader(dataset, batch_size=12)
+    inputs, labels = next(iter(dataloader))
+    plt.title(title)
+    plt.imshow(make_grid(inputs.cpu(), nrow=3, normalize=True, scale_each=True).permute(1, 2, 0))
+
+
 def show_predictions(model, dataset, correctly_predicted=True):
     """
     Display the top BEST and Worst predictions by accuracy
@@ -45,7 +59,7 @@ def show_predictions(model, dataset, correctly_predicted=True):
         outputs = model(inputs)
 
         probs = nnf.softmax(outputs, dim=1)  # compute the in terms of probabilities (0, 1.0)
-        prob, y_pred = torch.max(probs, 1)   # get the (prob, class) pair for every probability
+        prob, y_pred = torch.max(probs, 1)  # get the (prob, class) pair for every probability
         pred_idx = (y_pred == labels) if correctly_predicted else (y_pred != labels)
 
         _sorted = np.argsort(prob[pred_idx].detach().numpy())
